@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate")%>
+
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3 class="mb-3">Create a New Restaurant</h3>
+    <form
+      method="POST"
+      action="/foodZest"
+      class="needs-validation"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label">Restaurant Name</label>
+        <input
+          name="listing[name]"
+          placeholder="Enter restaurant name"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="famousDish" class="form-label">FamousDish</label>
+        <input
+          name="listing[famousDish]"
+          placeholder="enter your famousDish"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please enter your famousDish.</div>
+      </div>
+     
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image </label>
+        <input
+          name="listing[image]"
+            type="file"
+          class="form-control"
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="rating" class="form-label">Restaurant Rating</label>
+          <input
+            name="listing[rating]"
+            placeholder="5"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">rating should be valid!.</div>
+        </div>
+        <div class="mb-2 col-lg-8">
+          <label for="location" class="form-label">Location</label>
+          <input
+            name="listing[location]"
+            placeholder="Jaipur,Rajasthan"
+            type="text"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">location should be valid!.</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input
+          name="listing[country]"
+          placeholder="India"
+          type="text"
+          class="form-control"
+          required
+        /><br />
+        <div class="invalid-feedback">country should be valid!.</div>
+      </div>
+      <button class="btn btn-dark add-btn mb-3">ADD</button>
+    </form>
+  </div>
+</div>

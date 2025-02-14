@@ -1,0 +1,91 @@
+<% layout("/layouts/boilerplate")%>
+
+<div id="filters">
+  <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+  <div><i class="fa-solid fa-utensils"></i></div>
+  <p>Utensils</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-burger"></i></div>
+    <p>Burger</p>
+  </div>
+  <div class="filter">
+  <div><i class="fa-solid fa-pizza-slice"></i></div>
+  <p>Pizza</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-ice-cream"></i></div>
+    <p>Ice cream</p>
+  </div>
+  <div class="filter">
+  <div><i class="fa-solid fa-bowl-rice"></i></div>
+  <p>Rice</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-cookie-bite"></i></div>
+    <p>cookie</p>
+  </div>
+  <div class="filter">
+  <div><i class="fa-solid fa-cheese"></i></div>
+  <p>cheese</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-champagne-glasses"></i></div>
+    <p>Champange</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-pepper-hot"></i></div>
+      <p>Papper Hot</p>
+    </div>
+    <div class="filter">
+    <div><i class="fa-solid fa-hotdog"></i></div>
+    <p>Hotdog</p>
+    </div>
+
+<div class="tax-toggle">
+  <div class="form-check-reverse form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Display Total after Taxes</label>
+  </div>
+</div>
+</div>
+
+
+   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <%for(let list of listing) {%>
+      <a href="/foodZest/<%= list._id%>" class="listing-link">
+      <div class="card col listing-card" >
+        <img src="<%= list.image.url%>" class="card-img-top" alt="Image" style="height: 18rem;">
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= list.name%><br></b>
+            <%= list.rating%>
+            <i class="tax-info">&nbsp; &nbsp;+18 GST</i>
+          </p>
+        </div>
+      </div>
+    </a>
+      <%}%>
+   </div>
+   
+  
+   <script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+   
+    taxSwitch.addEventListener("click",()=>{
+      let taxInfo = document.getElementsByClassName("tax-info");
+      for(info of taxInfo){
+        if(info.style.display != "inline"){
+          info.style.display = "inline";
+        }else{
+          info.style.display = "none";
+        }
+      
+      }
+    })
+   </script>
